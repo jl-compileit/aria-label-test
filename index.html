@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>aria-label text replacement</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+    }
+    .decimal {
+      vertical-align: super;
+      font-size: 60%;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Each p tries something different</h1>
+
+  <button type="button">Focus</button>
+
+  <p>
+    <span>Price: $4</span><span class="decimal">99</span>
+  </p>
+
+  <p aria-label="Price: $4 99">
+    <span>Price: $4</span><span class="decimal">99</span>
+  </p>
+
+  <p role="img" aria-label="Price: $4 99">
+    <span>Price: $4</span><span class="decimal">99</span>
+  </p>
+
+  <p role="text" aria-label="Price: $4 99">
+    <span>Price: $4</span><span class="decimal">99</span>
+  </p>
+
+  <p>
+    <span class="sr-only">Price: $4 99</span>
+    <span aria-hidden="true">Price: $4<span class="decimal">99</span></span>
+  </p>
+
+  <button type="button">Focus</button>
+</body>
+</html>

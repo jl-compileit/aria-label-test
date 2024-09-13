@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>aria-label text replacement, Swedish</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+    }
+    .decimal {
+      vertical-align: super;
+      font-size: 60%;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+  </style>
+</head>
+<body>
+  <button type="button">Fokus</button>
+
+  <p>
+    Pris: 49<span class="decimal">90</span>
+  </p>
+
+  <p aria-label="Pris: 49,90">
+    Pris: 49<span class="decimal">90</span>
+  </p>
+
+  <p role="img" aria-label="Tidigare pris: 49,90">
+    <del>49,90</del>
+  </p>
+
+  <p role="text" aria-label="Tidigare pris: 499 kr">
+    <del>499.-</del>
+  </p>
+
+  <p>
+    <span class="sr-only">Pris: 49,90</span>
+    <span aria-hidden="true">Pris: 49<span class="decimal">90</span></span>
+  </p>
+
+  <p>
+    <span class="sr-only">Tidigare pris: 49,90</span>
+    <span aria-hidden="true"><del>49,90</del></span>
+  </p>
+
+  <button type="button">Fokus</button>
+</body>
+</html>
